@@ -33,19 +33,20 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
+      "name": "Changelog",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://1price.supahub.com/changelog"
+    },
+
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://1price.co/blog"
     },
     {
       "name": "Community",
       "icon": "discord",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://discord.gg/BGPYQPd56K"
     }
   ],
   "navigation": [
