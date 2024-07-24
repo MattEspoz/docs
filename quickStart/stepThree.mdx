@@ -1,11 +1,45 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: "Step Three"
+description: "Start your first price experiment in 15 mins or less"
+icon: "square-3"
 ---
 
-## Setup your development
+<Tip>
+  **Prerequisite:** You should have connected Stripe before starting. More info
+  [here](/stripe)
+</Tip>
 
-Learn how to update your docs locally and and deploy them to the public.
+## Step One: Place Embeded Code
+
+```bash
+<script src="https://widget.1price.co/api/v1/add_experiment?workspace_id=YOUR_WORKSPACE_ID" defer ></script>
+```
+
+The script needs to be added on your landing page, app, or any other page where you want to use 1Price. This script will add a global variable called `1Price` to your window object which will categorize new users.. You can find your unique `workspace_id` on the [connect page](https://app.1price.co/connect)
+
+## Step Two: Dynamic Price Number
+
+<ParamField></ParamField>
+
+```bash
+fetch("https://widget.1price.co/api/v1/price_value", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        cookies: document.cookie,
+    }),
+    credentials: "include",
+})
+    .then((response) => response.json())
+    .then((data) => {
+        console.log("Products", data)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+```
 
 ### Edit and preview
 

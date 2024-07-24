@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "1Price Docs",
   "logo": {
     "dark": "/logo/Logo.svg",
     "light": "/logo/Logo.svg"
@@ -17,8 +17,8 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hello@1price.co"
+      "name": "Login",
+      "url": "http://app.1price.co/login"
     }
   ],
   "topbarCtaButton": {
@@ -37,12 +37,6 @@
       "icon": "book-open-cover",
       "url": "https://1price.supahub.com/changelog"
     },
-
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://1price.co/blog"
-    },
     {
       "name": "Community",
       "icon": "discord",
@@ -52,7 +46,24 @@
   "navigation": [
     {
       "group": "Introduction",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": [
+        "introduction",
+        {
+          "group": "Quick Start",
+          "pages": [
+            "quickStart/stepOne",
+            "quickStart/stepTwo",
+            "quickStart/stepThree"
+          ],
+          "icon": "bolt"
+        },
+        "development"
+      ]
+    },
+
+    {
+      "group": "Menu",
+      "pages": ["menu/code"]
     },
     {
       "group": "Essentials",
