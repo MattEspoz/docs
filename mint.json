@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "1Price Docs",
   "logo": {
-    "dark": "/logo/Logo.svg",
-    "light": "/logo/Logo.svg"
+    "dark": "/logo/Logo_Dark.svg",
+    "light": "/logo/Logo_Light.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
@@ -17,8 +17,8 @@
   },
   "topbarLinks": [
     {
-      "name": "Login",
-      "url": "http://app.1price.co/login"
+      "name": "Back to 1Price",
+      "url": "http://app.1price.co/"
     }
   ],
   "topbarCtaButton": {
@@ -66,7 +66,7 @@
       "pages": ["menu/code"]
     },
     {
-      "group": "Essentials",
+      "group": "Experiments",
       "pages": [
         "essentials/markdown",
         "essentials/code",
