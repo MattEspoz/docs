@@ -75,6 +75,7 @@
     {
       "group": "Integrations",
       "pages": [
+        "integrations/react",
         "integrations/framer",
         "integrations/webflow",
         "integrations/wordpress",
@@ -96,6 +97,7 @@
   ],
   "footerSocials": {
     "x": "https://x.com/halationco",
-    "linkedin": "https://www.linkedin.com/company/halation"
+    "linkedin": "https://www.linkedin.com/company/halation",
+    "website": "https://1price.co"
   }
 }
