@@ -55,7 +55,8 @@
             "quickStart/stepTwo",
             "quickStart/stepThree"
           ],
-          "icon": "bolt"
+          "icon": "bolt",
+          "iconType": "solid"
         },
         "development"
       ]
@@ -63,17 +64,24 @@
 
     {
       "group": "Menu",
-      "pages": ["menu/code"]
+      "pages": [
+        "build/plans",
+        "build/offers",
+        "build/firstExp",
+        "build/results"
+      ]
     },
     {
       "group": "Experiments",
+      "pages": ["test/increase", "test/localized"]
+    },
+    {
+      "group": "Integrations",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "integrations/framer",
+        "integrations/webflow",
+        "integrations/wordpress",
+        "integrations/gumroad"
       ]
     },
     {
