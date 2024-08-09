@@ -46,20 +46,7 @@
   "navigation": [
     {
       "group": "Introduction",
-      "pages": [
-        "introduction",
-        {
-          "group": "Quick Start",
-          "pages": [
-            "quickStart/stepOne",
-            "quickStart/stepTwo",
-            "quickStart/stepThree"
-          ],
-          "icon": "bolt",
-          "iconType": "solid"
-        },
-        "development"
-      ]
+      "pages": ["introduction", "quickStart"]
     },
 
     {
@@ -68,7 +55,16 @@
         "build/plans",
         "build/offers",
         "build/firstExp",
-        "build/code",
+        {
+          "group": "Build: Code",
+          "pages": [
+            "quickStart/stepOne",
+            "quickStart/stepTwo",
+            "quickStart/stepThree"
+          ],
+          "icon": "gear-code",
+          "iconType": "solid"
+        },
         "build/results"
       ]
     },
