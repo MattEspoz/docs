@@ -9,15 +9,29 @@ iconType: "solid"
   <img src="/images/HeroPlans.png" style={{ borderRadius: "0.5rem" }} />
 </Frame>
 
-### Dashboard View
+The 1Price platform allows you to create unique 'tiers' or 'plans' that allow for full customization for experiments. You create plans for monthly plans, yearly plans, and one-time deals.
+
+### Plan Configurations
+
+After you've imported your products from Stripe you need to have a 1-to-1 mapping of the product to their plan types. For instance, you can create a new plan called 'Growth Tier' where you link one Product for the monthly mapping, and another Product for the yearly mapping.
 
 <Frame>
   <img src="/images/PlansDashboard.png" style={{ borderRadius: "0.5rem" }} />
 </Frame>
 
-### Create Plan
+Navigate to the **Plan** tab and choose **+ New** then fill in the identifier, description, and corresponding products.
+
+<Info>
+  The identifier must be unique as it be used later for during API calls.
+</Info>
 
 <Frame>
   <img src="/images/CreatePlan.png" style={{ borderRadius: "0.5rem" }} />
 </Frame>
-## COMING SOON
+
+<Tip>
+  {" "}
+  You can also map particular Stripe productIds with their corresponding original
+  productIds. This is useful if you use external tools or have a complex backend
+  system.{" "}
+</Tip>
