@@ -50,8 +50,9 @@
     },
 
     {
-      "group": "Menu",
+      "group": "Setup",
       "pages": [
+        "build/overview",
         "build/plans",
         "build/offers",
         "build/firstExp",
