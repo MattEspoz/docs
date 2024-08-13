@@ -29,9 +29,29 @@ Navigate to the **Plan** tab and choose **+ New** then fill in the identifier, d
   <img src="/images/CreatePlan.png" style={{ borderRadius: "0.5rem" }} />
 </Frame>
 
-<Tip>
+<Note>
   {" "}
   You can also map particular Stripe productIds with their corresponding original
   productIds. This is useful if you use external tools or have a complex backend
   system.{" "}
+</Note>
+
+### Required Fields
+
+<ParamField path="Plan Identifier" type="id" required>
+  The unique id for your Plan
+</ParamField>
+<ParamField path="Description" type="string" required>
+  The description of your plan
+</ParamField>
+<ParamField path="Monthly Product" type="plan">
+  The product that is linked to your monthly plan.
+</ParamField>
+<ParamField path="Yearly Product" type="plan">
+  The product that is linked to your yearly plan.
+</ParamField>
+
+<Tip>
+  For **One-time Products**, you can link a single value instead of grouping the Monthly & Yearly.
+
 </Tip>

@@ -14,7 +14,7 @@ that determine the better Offering.
 
 ### Experiment Configurations
 
-After setting up your [Offerings](/build/offers) and adding them to an [Experiment](/build/experiment), 1Price will then randomly assign users to a cohort where they will only see only one of the two Offerings
+After setting up your [Offerings](/build/offers) and adding them to an [Experiment](/build/experiment), 1Price will then randomly assign users to a cohort where they will only see only one of the two Offerings.
 
 <Frame>
   <img
@@ -23,6 +23,45 @@ After setting up your [Offerings](/build/offers) and adding them to an [Experime
   />
 </Frame>
 
+Navigate to the **Dashboard** tab and choose **+ New** then fill in the Experiment Name, Control Offering, Treatment Offering, and the size of the Audience Set. Once you've entered this information, click **Create Experiment**.
+
 <Frame>
   <img src="/images/CreateExperiment.png" style={{ borderRadius: "0.5rem" }} />
 </Frame>
+
+### Required Fields
+
+<ParamField path="Experiment Name" type="string" required>
+  The name of the experiment
+</ParamField>
+<ParamField path="Control Offering" type="offer" required>
+  The offering that will be used as the Control group
+</ParamField>
+<ParamField path="Treatment Offering" type="offer" required>
+  The offering that will be selected as the Treatment group
+</ParamField>
+<ParamField path="Audience Set" type="percent" required>
+  The % of new customers that will be exposed to the price experiment
+</ParamField>
+
+<Tip>
+  You can modify the % of new customers to enroll in 10% increments based on how
+  much of your audience you want to expose to the test. Keep in mind that the
+  enrolled new customers will be split between the two variants, so a test that
+  enrolls 10% of new customers would yield 5% in the Control group and 5% in the
+  Treatment group.
+</Tip>
+<Note>
+  Experiments that are localized per country is currently in beta. Interested?
+  Request access [here](mailto:hello@1price.co)
+</Note>
+
+### Running multiple tests simultaneously
+
+### Start an Experiment
+
+### FAQs
+
+**Can I edit the Offerings in a started experiment?**
+
+Editing an Offering for an active experiment would make the results unusable. Be sure to check before starting your experiment that your chosen Offerings render correctly in your app(s). If you need to make a change to your Offerings, stop the experiment and create a new one with the updated Offerings.

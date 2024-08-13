@@ -13,7 +13,7 @@ The 1Price platform allows you to create Offers that hold your [Plans](/build/pl
 
 ### Offer Configurations
 
-After settings up your [Plans](/build/plans), you can now group your Plans together into an Offering. The differences of these Offers build the foundation for setting [Experiments](/build/experiment).
+After settings up your [Plans](/build/plans), you can now group your Plans together into an Offering. The differences of these Offers are basic for setting [Experiments](/build/experiment).
 
 <Frame>
   <img src="/images/OffersDashboard.png" style={{ borderRadius: "0.5rem" }} />
@@ -24,3 +24,12 @@ Navigate to the **Offer** tab and choose **+ New** then fill in the Offer Name, 
 <Frame>
   <img src="/images/CreateOffer.png" style={{ borderRadius: "0.5rem" }} />
 </Frame>
+
+### Required Fields
+
+<ParamField path="Offer Name" type="string" required>
+  The name of the offer
+</ParamField>
+<ParamField path="Plan Selection" type="plan" required>
+  The plans that are linked to your offer.
+</ParamField>
