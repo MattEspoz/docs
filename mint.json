@@ -36,11 +36,6 @@
       "name": "Changelog",
       "icon": "book-open-cover",
       "url": "https://1price.supahub.com/changelog"
-    },
-    {
-      "name": "Community",
-      "icon": "discord",
-      "url": "https://discord.gg/BGPYQPd56K"
     }
   ],
   "navigation": [
