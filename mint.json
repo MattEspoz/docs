@@ -51,6 +51,7 @@
         "build/plans",
         "build/offers",
         "build/firstExp",
+        "build/code",
         {
           "group": "Build: Code",
           "pages": [

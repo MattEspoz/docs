@@ -64,7 +64,15 @@ Navigate to the **Dashboard** tab and choose **+ New** then fill in the Experime
 
 ### Start an Experiment
 
-Open the details of an **Experiment** by selecting it in the Experiment Table. After reviewing the experiment, choose **Start Experiment** to begin activating the test. The `Pending` status will be changed to `In Progress`.
+Open the details of an **Experiment** by selecting it in the Experiment Table. After reviewing the experiment, choose **Start Experiment** to begin activating the test.
+
+<Warning>
+  Before starting an experiment, ensure all the [Code
+  Components](/quickStart/stepOne) have been properly added to your app where
+  there are pricing options.
+</Warning>
+
+The `Pending` status will be changed to `In Progress`.
 
 <Frame>
   <img src="/images/StartExperiment.png" style={{ borderRadius: "0.5rem" }} />
@@ -94,4 +102,4 @@ After you choose to stop an experiment, new customers will no longer be enrolled
 
 **What happens to customers that were enrolled in an experiment after it's been stopped?**
 
-New customers will no longer be enrolled in an experiment after it's been stopped, and customers who were already enrolled in the experiment will begin receiving the Default Offering if they reach a paywall again.
+New customers will no longer be enrolled in an experiment after it's been stopped, and customers who were already enrolled in the experiment will begin receiving the `Default Offering` if they reach a paywall again.

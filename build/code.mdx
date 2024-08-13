@@ -1,8 +1,57 @@
 ---
 title: "Build: Code"
-description: "Integrate code into your application"
+description: "Integrate 1Price into your application"
 icon: "gear-code"
 iconType: "solid"
 ---
 
-## FOLDER WITH THREE STEPS (COMING SOON)
+<Tip>
+  **Prerequisite:** You should have connected Stripe before starting. More info
+  [here](/quickStart#2-connect-stripe-1-min)
+</Tip>
+
+<Note>
+  We have created personalized guides to integrate with the following apps:
+  [React/Nextjs](/integrations/react), [Framer](/integrations/framer),
+  [Webflow](/integrations/webflow), [Wordpress](/integrations/wordpress),
+  [Gumroad]((/integrations/gumroad)).
+</Note>
+
+## Step One: Copy & Paste Embeded Code
+
+Insert our script tag in your website's head tag.
+
+```bash
+<script src="https://widget.1price.co/api/v1/add_experiment?workspace_id=YOUR_WORKSPACE_ID" defer ></script>
+```
+
+The script needs to be added on your landing page, app, or any other page where you want to use 1Price. This script will add a global variable called `1Price` to your window object which will categorize new users.
+
+<Warning>
+  Replace value of `YOUR_WORKSPACE_ID` with your unique `workspace_id` found on
+  [connect](https://app.1price.co/connect)
+</Warning>
+
+## Step Two: Dynamic Price Number
+
+<ParamField></ParamField>
+
+```bash
+fetch("https://widget.1price.co/api/v1/price_value", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        cookies: document.cookie,
+    }),
+    credentials: "include",
+})
+    .then((response) => response.json())
+    .then((data) => {
+        console.log("Products", data)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+```
