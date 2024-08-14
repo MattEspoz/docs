@@ -1,6 +1,6 @@
 ---
 title: "Build: Code"
-description: "Integrate 1Price into your application"
+description: "Integrate 1Price into your application in 15 mins"
 icon: "gear-code"
 iconType: "solid"
 ---
@@ -21,11 +21,14 @@ iconType: "solid"
 
 Insert our script tag in your website's head tag.
 
-```bash
-<script src="https://widget.1price.co/api/v1/add_experiment?workspace_id=YOUR_WORKSPACE_ID" defer ></script>
+```javascript
+<script
+  src="https://widget.1price.co/api/v1/add_experiment?workspace_id=YOUR_WORKSPACE_ID" // change Workspace ID
+  defer
+></script>
 ```
 
-The script needs to be added on your landing page, app, or any other page where you want to use 1Price. This script will add a global variable called `1Price` to your window object which will categorize new users.
+The script needs to be added on your landing page, app, or any other page where you want to use 1Price. This script will add a global variable called `$1Price` to your window object which will categorize new users.
 
 <Warning>
   Replace value of `YOUR_WORKSPACE_ID` with your unique `workspace_id` found on
@@ -33,6 +36,8 @@ The script needs to be added on your landing page, app, or any other page where 
 </Warning>
 
 ## Step Two: Dynamic Price Number
+
+To have adaptive pricing, change the price value to correspond with the [1Price Experiment](/build/firstExp). This value will be used during pricing tables within the app and landing page.
 
 <ParamField></ParamField>
 
@@ -55,3 +60,51 @@ fetch("https://widget.1price.co/api/v1/price_value", {
         console.log(error)
     })
 ```
+
+This endpoint returns a JSON object containing pricing details for your products, including monthly and yearly pricing options, features, and currency information. The response includes:
+
+`Success Status`
+
+`Currency`
+
+`Product Details` (name, monthly and yearly pricing, features)
+
+Use this data to dynamically populate your pricing table and ensure your visitors always see the most up-to-date pricing information.
+
+<AccordionGroup>
+  <Accordion title="Code Response" icon="code" iconType="solid">
+  **Sample Response**
+   ```javascript
+{
+ "success": true,
+ "currency": "USD",
+ "products": [
+   {
+     "name": "Basic Plan",
+     "monthly": {
+       "price": 9.99,
+       "interval": "month",
+       "interval_count": 1,
+       "stripe_price_id": "price_1ABC123XYZ"
+      },
+     "yearly": {
+       "price": 99.99,
+       "interval": "year",
+       "interval_count": 1,
+       "stripe_price_id": "price_2DEF456UVW"
+      },
+     "features": [
+       "Feature 1",
+       "Feature 2",
+       "Feature 3"
+      ]
+    }
+  ]
+}
+```
+</Accordion>
+</AccordionGroup>
+
+## Step Three: Track Purchases
+
+To determine the success of a experiment, we track multiple data multiple on the [Results](/build/results).
