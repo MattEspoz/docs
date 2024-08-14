@@ -116,14 +116,14 @@ Use this data to dynamically populate your pricing table and ensure your visitor
 
 ## Step Three: Track Purchases
 
-To determine the success of a experiment, we track multiple data points on [Results](/build/results). Simply add a `client-reference-id` to your Stripe Checkout Session
+To determine the success of a experiment, we track multiple data points on [Results](/build/results). Simply add a `1price_cid` to your Stripe Checkout Session
 
 You'll need to send the 1Price generated priceId to your backend server when creating a stripe subscription.
 
 ```javascript Example Stripe Subscription
 const subscription = await stripe.subscriptions.create({
 customer: 'cus_Mzbketpctz1F',
-metadata: { 1price_cid: req.body.referral, },
+metadata: { 1price_cid: req.body.priceId, },
 items: [
 {price: 'price_1MFMsUToeCS20juA2Y'},
 ],
