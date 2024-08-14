@@ -72,6 +72,13 @@ This endpoint returns a **JSON object containing pricing details** for your prod
 
 Use this data to dynamically populate your pricing table and ensure your visitors always see the most up-to-date pricing information.
 
+<ParamField path="Offer Name" type="string" required>
+  The name of the offer
+</ParamField>
+<ParamField path="Plan Selection" type="plan" required>
+  The plans that are linked to your offer.
+</ParamField>
+
 <AccordionGroup>
   <Accordion title="Sample Response" icon="code" iconType="solid">
   <CodeGroup>

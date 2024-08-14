@@ -26,15 +26,13 @@ The initial screen will give you basis details about the components of the exper
 
 ### Customer Journey Tables
 
-The customer journey tables act as a comprehensive view of the funnel of a user.
+The customer journey tables act as a comprehensive view of the customer funnel.
 
-For simplicity, we've broken the results into three tables:
+For simplicity, we've broken up experiment results into three tables:
 
-1. Initial Conversion
-2. Paid Conversion
-3. Revenue Boost
-
-To help parse your results, we've broken up experiment results into three tables:
+1. **Initial Conversion:** for understanding visitors rates as the top of the funnel. Metrics are used as a way to predict future conversion rates.
+2. **Paid Conversion:** for understanding how your initial conversion trends are translating into new paying customers.
+3. **Revenue:** for understanding the impacts of two others tables on metrics such as monthly recurring revenue (MRR) and lifetime value (LTV)
 
 <Frame>
   <img src="/images/Result2.png" style={{ borderRadius: "0.5rem" }} />
@@ -43,3 +41,52 @@ To help parse your results, we've broken up experiment results into three tables
 <Frame>
   <img src="/images/Result3.png" style={{ borderRadius: "0.5rem" }} />
 </Frame>
+
+### Metric Definitions
+
+<ParamField path="Total Visitors">
+  The total amount of visitors that have seen your pricing
+</ParamField>
+<ParamField path="Paid Customers">Users that subscribe to your plan</ParamField>
+<ParamField path="Converted to Paying">
+  The number of users who convert to paying subscribers.
+</ParamField>
+<ParamField path="Active Subscribers">
+  The number of subscribers with an active plan
+</ParamField>
+<ParamField path="Churned Subscribers">
+  The number of customers who were previous subscribers but have sinced
+  cancelled their plan (note: relevant for one-time products)
+</ParamField>
+<ParamField path="Realized LTV (revenue)">
+  The total revenue you've received from each experiment variant.
+</ParamField>
+<ParamField path="Realized LTV per visitor">
+  The total revenue you've received from each experiment variant, divided by the
+  number of total visitors
+</ParamField>
+<ParamField path="Realized LTV per paying customer">
+  The total revenue you've received from each experiment variant, divided by the
+  number of paying customers in each variant
+</ParamField>
+<ParamField path="Total MRR">
+  The total amount of monthly recurring revenue (MRR) gained from the experiment
+  variant{" "}
+</ParamField>
+
+<Note>
+  Only new users are included in the results to keep your control and treatment
+  cohort equal.
+</Note>
+
+### FAQs
+
+**What happens to customers that were enrolled in an experiment after it's been stopped?**
+
+New customers will no longer be enrolled in an experiment after it's been stopped, and customers who were already enrolled in the experiment will begin receiving the `Default Offering` if they reach a paywall again.
+
+At the moment, we do not continously track customer behaviours after the experiment has terminated.
+
+**How can I review the individual customers who were enrolled in my experiment?**
+
+We are currently working on a Get or Create Subscriber endpoint which will be able to help you determine if an individual subscriber was enrolled in an experiment, and can then pass that fact to other destinations like an analytics provider like Amplitude & Mixpanel, or your own internal database.
