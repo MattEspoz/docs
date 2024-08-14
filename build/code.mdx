@@ -39,42 +39,43 @@ The script needs to be added on your landing page, app, or any other page where 
 
 To have adaptive pricing, change the price value to correspond with the [1Price Experiment](/build/firstExp). This value will be used during pricing tables within the app and landing page.
 
-<ParamField></ParamField>
+<Tip>
+  For comprehensive tests, check out our [interactive
+  playground](/api-reference/introduction).
+</Tip>
 
-```bash
+```javascript POST
 fetch("https://widget.1price.co/api/v1/price_value", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-        cookies: document.cookie,
-    }),
-    credentials: "include",
+  method: "POST",
+  body: JSON.stringify({
+    offerId: $1Price.offer_id,
+    workspaceId: $1Price.workspace_id,
+    customerId: $1Price.customer_id,
+  }),
 })
-    .then((response) => response.json())
-    .then((data) => {
-        console.log("Products", data)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Products", data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 ```
 
-This endpoint returns a JSON object containing pricing details for your products, including monthly and yearly pricing options, features, and currency information. The response includes:
+This endpoint returns a **JSON object containing pricing details** for your products, including monthly and yearly pricing options, features, and currency information. The response includes:
 
 `Success Status`
 
 `Currency`
 
-`Product Details` (name, monthly and yearly pricing, features)
+`Product Details`
 
 Use this data to dynamically populate your pricing table and ensure your visitors always see the most up-to-date pricing information.
 
 <AccordionGroup>
   <Accordion title="Code Response" icon="code" iconType="solid">
   **Sample Response**
-   ```javascript
+   ```javascript Success Message
 {
  "success": true,
  "currency": "USD",
