@@ -9,7 +9,7 @@
   "colors": {
     "primary": "#1A6D6F",
     "light": "#7CC6C6",
-    "dark": "#4B9A9A",
+    "dark": "#1A6D6F",
     "anchors": {
       "from": "#1A6D6F",
       "to": "#3EB2B1"
@@ -36,6 +36,11 @@
       "name": "Changelog",
       "icon": "book-open-cover",
       "url": "https://1price.supahub.com/changelog"
+    },
+    {
+      "name": "Email Us",
+      "icon": "envelope",
+      "url": "mailto:hello@1price.co"
     }
   ],
   "navigation": [
@@ -68,18 +73,6 @@
         "integrations/webflow",
         "integrations/wordpress",
         "integrations/gumroad"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
       ]
     }
   ],
