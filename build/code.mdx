@@ -142,7 +142,7 @@ items: [
 const session = await stripe.checkout.sessions.create({
   success_url: "https://example.com/success",
   cancel_url: "https://example.com/cancel",
-  metadata: { tolt_referral: req.body.referral },
+  metadata: { 1Price_cid: req.body.1Price },
   line_items: [{ price: "price_H5vtDq1fbrJ", quantity: 1 }],
   mode: "subscription",
 });
