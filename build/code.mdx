@@ -21,13 +21,31 @@ iconType: "solid"
 
 Insert our script tag in your website's head tag.
 
-```javascript
+<CodeGroup>
+```html HTML
 <script
   src="https://widget.1price.co/script.js"
   data-1p="YOUR_WORKSPACE_ID"
   defer
 ></script>
 ```
+
+```javascript Next.js
+"use client"; // NextJS 13 requires this. Remove if you are using NextJS 12 or lower.
+
+import Script from "next/script";
+
+const YourComponent = () => {
+  return (
+    <Script
+      src="https://widget.1price.co/script.js"
+      data-1p="YOUR_WORKSPACE_ID" // Required
+    ></Script>
+  );
+};
+```
+
+</CodeGroup>
 
 The script needs to be added on your landing page, app, or any other page where you want to use 1Price. This script will add a global variable called `$1Price` to your window object which will categorize new users.
 
