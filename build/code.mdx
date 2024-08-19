@@ -70,6 +70,7 @@ fetch("https://widget.1price.co/api/v1/price_value", {
     offerId: $1Price.offer_id,
     workspaceId: $1Price.workspace_id,
     customerId: $1Price.customer_id,
+    uniqueId: YOUR_UNIQUE_ID,
   }),
 })
   .then((response) => response.json())
@@ -80,6 +81,10 @@ fetch("https://widget.1price.co/api/v1/price_value", {
     console.log(error);
   });
 ```
+
+<Warning>
+  Replace value of `YOUR_UNIQUE_ID` with the value of your customer_id.
+</Warning>
 
 This endpoint returns a **JSON object containing pricing details** for your products, including monthly and yearly pricing options, features, and currency information. The response includes:
 
@@ -149,32 +154,29 @@ To determine the success of a experiment, we track multiple data points on [Resu
 
 You'll need to send the 1Price generated priceId to your backend server when creating a stripe subscription.
 
-```javascript Example Stripe Subscription
-const subscription = await stripe.subscriptions.create({
-customer: 'cus_Mzbketpctz1F',
-metadata: { 1price_cid: req.body.priceId, },
-items: [
-{price: 'price_1MFMsUToeCS20juA2Y'},
-],
-});
-
-```
-
 ```javascript Example Stripe Checkout Session
 const session = await stripe.checkout.sessions.create({
   success_url: "https://example.com/success",
   cancel_url: "https://example.com/cancel",
-  metadata: { 1Price_cid: req.body.1Price },
-  line_items: [{ price: "price_H5vtDq1fbrJ", quantity: 1 }],
+  metadata: { oneprice_cid: YOUR_1PRICE_CID },
+  line_items: [{ price: YOUR_PRICE_ID, quantity: 1 }],
   mode: "subscription",
 });
 ```
 
+<Warning>
+  Replace value of `YOUR_1PRICE_CID` with the value of your customer_id and the
+  value of `YOUR_PRICE_ID` with the dynamic price_id.
+</Warning>
+
 <Note>
   Example above is with Javascript, but it is the same with every language. You
-  just need to send the 1Price ID from client side to your backend server either
+  just need to send the oneprice_cid from client side to your backend server either
   with params, query, or body and then send it to Stripe with metadata when a
   stripe checkout session.
+
+Also note, we can only track Checkout Sessions at the moment. Subscription Creations is in beta. [Message us for access](mailto:hello@1price.co)
+
 </Note>
 
 <Tip>
