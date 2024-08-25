@@ -7,10 +7,65 @@ iconType: "solid"
 
 The following is a guide on how to use 1Price to do localized price experiments.
 
-<Warning> **[VIDEO MISSING]**</Warning>
+### Experiment Reasoning
 
-### Step 1: Import Price
+> Most founders **have prices in a single currency (e.g. USD)**. Optimizing prices across countries will allow you to maximize sales. <br/> <br/> By using 1Price to do localized price experiments, you can capture 85% of the untapped market then analyze the results.
+
+### Step 1: Create New Price
+
+Login to your [Stripe Dashboard](https://dashboard.stripe.com/dashboard). Navigate to [Product Catalog](https://dashboard.stripe.com/products) then select the Product you want to add a new price to.
+
+<Frame>
+  <img src="/images/StripeProduct.png" style={{ borderRadius: "0.5rem" }} />
+</Frame>
 
 <Note>
-  This page is still in editing mode. Check periodically for new updates.
+  You can currently only create a new price on Stripe Dashboard. In the near
+  future, you will be able to create Stripe prices on 1Price directly.
 </Note>
+
+Be sure, to `add a price by currency` before publishing it:
+
+<Frame>
+  <img src="/images/StripeLocalized.png" style={{ borderRadius: "0.5rem" }} />
+</Frame>
+
+Then import the newly created price from the [Import Page](https://app.1price.co/import)
+
+<Frame>
+  <img src="/images/ImportLocalized.png" style={{ borderRadius: "0.5rem" }} />
+</Frame>
+
+### Step 2: Update Plan & Offer
+
+Build or update a [Plan](/build/plans) that links to the newly imported price.
+
+<Frame>
+  <img src="/images/PlanIncrease.png" style={{ borderRadius: "0.5rem" }} />
+</Frame>
+
+Then, create a new [Offer](/build/offers) that includes the Plan.
+
+<Frame>
+  <img src="/images/OfferIncrease.png" style={{ borderRadius: "0.5rem" }} />
+</Frame>
+
+### Step 3: Start Experiment
+
+Build a new [Experiment](/build/firstExp) comparing the two Offers.
+
+<Frame>
+  <img src="/images/StartExperiment.png" style={{ borderRadius: "0.5rem" }} />
+</Frame>
+
+Finally, start the experiment and see the [Results](/build/results) after 24 hours.
+
+<Warning>
+  Ensure the [integration](/build/code) is correctly setup before analyzing the
+  experiment results.
+</Warning>
+
+<Tip>
+  **Need more help?** Contact us via live chat or [email](hello@1price.co) and
+  we can set up a price experiment together!
+</Tip>
