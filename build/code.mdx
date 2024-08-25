@@ -154,9 +154,9 @@ Use this data to dynamically populate your pricing table and ensure your visitor
 
 ## Step Three: Track Purchases
 
-To determine the success of a experiment, we track multiple data points on [Results](/build/results). Simply add a `1price_cid` to your Stripe Checkout Session
+To determine the success of a experiment, we track multiple data points on [Results](/build/results). Simply add a `oneprice_cid` to your Stripe Checkout Session
 
-You'll need to send the 1Price generated priceId to your backend server when creating a stripe subscription.
+You'll need to send the 1Price generated priceId to your backend server when creating a Stripe subscription.
 
 ```javascript Example Stripe Checkout Session
 const session = await stripe.checkout.sessions.create({
