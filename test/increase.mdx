@@ -11,7 +11,7 @@ The following is a guide on how to use 1Price to do price increase experiments.
 
 ### Step 1: Create New Price
 
-Login to your [Stripe Dashboard](https://dashboard.stripe.com/dashboard). Navigate to [Product Catalog](https://dashboard.stripe.com/products) then select the Product you want to add a new Price to.
+Login to your [Stripe Dashboard](https://dashboard.stripe.com/dashboard). Navigate to [Product Catalog](https://dashboard.stripe.com/products) then select the Product you want to add a new price to.
 
 <Frame>
   <img src="/images/StripeProduct.png" style={{ borderRadius: "0.5rem" }} />
@@ -30,10 +30,30 @@ Then import the newly created price from the [Import Page](https://app.1price.co
 
 ### Step 2: Create New Offer
 
-Next, create a new [Plan](/build/plans)
+Build or update a [Plan](/build/plans) that links to the newly imported price.
+
+<Frame>
+  <img src="/images/PlanIncrease.png" style={{ borderRadius: "0.5rem" }} />
+</Frame>
+
+Next, create a new [Offer](/build/offers) that includes the Plan.
 
 ### Step 3: Start Experiment
 
-<Note>
-  This page is still in editing mode. Check periodically for new updates.
-</Note>
+Build a new [Experiment](/build/firstExp) comparing the two Offers.
+
+<Frame>
+  <img src="/images/StartExperiment.png" style={{ borderRadius: "0.5rem" }} />
+</Frame>
+
+Finally, start the experiment and see the [Results](/build/results) after 24 hours.
+
+<Warning>
+  Ensure the [integration](/build/code) is correctly setup before analyzing the
+  experiment results.
+</Warning>
+
+<Tip>
+  **Need more help?** Contact us via live chat or [email](hello@1price.co) and
+  we can set up a price experiment together!
+</Tip>
