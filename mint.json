@@ -41,9 +41,9 @@
       "url": "https://1price.supahub.com/changelog"
     },
     {
-      "name": "Email Us",
-      "icon": "envelope",
-      "url": "mailto:hello@1price.co"
+      "name": "Community",
+      "icon": "discord",
+      "url": "https://discord.gg/BGPYQPd56K"
     }
   ],
   "navigation": [
