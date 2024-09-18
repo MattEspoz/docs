@@ -116,20 +116,24 @@ Use this data to dynamically populate your pricing table and ensure your visitor
    ```javascript Success Message
 {
  "success": true,
- "currency": "USD",
+ "currency": "usd",
  "products": [
    {
      "name": "Basic Plan",
      "monthly": {
-       "price": 9.99,
+       "billing_scheme": "per_unit"
+       "metadata": "reg price"
        "interval": "month",
        "interval_count": 1,
+       "price": 9.99,
        "stripe_price_id": "price_1ABC123XYZ"
       },
      "yearly": {
-       "price": 99.99,
+       "billing_scheme": "per_unit"
+       "metadata": "60% off"
        "interval": "year",
        "interval_count": 1,
+       "price": 99.99,
        "stripe_price_id": "price_2DEF456UVW"
       },
      "features": [
