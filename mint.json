@@ -44,6 +44,11 @@
       "name": "Community",
       "icon": "discord",
       "url": "https://discord.gg/BGPYQPd56K"
+    },
+    {
+      "name": "Email Us",
+      "icon": "envelope",
+      "url": "mailto:hello@1price.co"
     }
   ],
   "navigation": [
