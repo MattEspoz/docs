@@ -94,6 +94,7 @@ fetch("https://widget.1price.co/api/v1/price_value", {
     workspaceId: $1Price.workspace_id,
     customerId: $1Price.customer_id,
     uniqueId: YOUR_UNIQUE_ID, // OPTIONAL
+    currency: "usd", // OPTIONAL
   }),
 })
   .then((response) => response.json())
@@ -245,3 +246,13 @@ This errors on the script shows when you have not started an experiment or when 
 **What is the difference between `data-1p` and `workspace_id`?**
 
 They are the same thing, just two different names for the same value. You can access your workspace from your script with `$1Price.workspace_id`.
+
+**How can I preview what a specific customer segment sees?**
+
+You can preview the pricing for any offer by making a GET request to:
+
+```http
+http://widget.1price.co/api/v1/price_value?offer_id=YOUR_OFFER_ID
+```
+
+This is useful for verifying the pricing that different customer segments will see.
