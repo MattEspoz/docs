@@ -233,13 +233,9 @@ Also note, we can only track Checkout Sessions at the moment. Subscription Creat
 
 > **BONUS:** You can create a 100% off coupon on Stripe and use that code to make the test purchase, so you do not get charged.
 
-## Need Additional Help?
-
-You can always contact us via live chat or [email](hello@1price.co) and we can set up a price experiment together!
-
 ### FAQs
 
-**Why do get the error "Start an experiment to activate script"?**
+**Why do get the error: 'Start an experiment to activate script'?**
 
 This error appears when there are no active experiments in your workspace. To resolve this, go to your dashboard and set at least one experiment's status to `In Progress`. The script will automatically activate once you have an active experiment.
 
@@ -251,8 +247,12 @@ These are two references to the same identifier. `data-1p` is used when embeddin
 
 You can preview the pricing for any offer by making a GET request to:
 
-```http
+```javascript
 http://widget.1price.co/api/v1/price_value?offer_id=YOUR_OFFER_ID
 ```
 
 This is useful for verifying the pricing that different customer segments will see.
+
+**I have additional questions, how can I contact you?**
+
+You can always contact us via live chat or [email](hello@1price.co) and we can set up a price experiment together!
