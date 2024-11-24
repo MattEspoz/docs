@@ -129,6 +129,14 @@ Use this data to dynamically populate your pricing table and ensure your visitor
 <ParamField path="customerId" type="string" required>
   The customer linked to the offer
 </ParamField>
+<ParamField path="uniqueId" type="string">
+  Optional parameter to maintain consistent pricing for a specific customer
+  across multiple sessions
+</ParamField>
+<ParamField path="currency" type="string">
+  Optional parameter to specify the currency for returned pricing values (e.g.,
+  "usd", "eur", "gbp")
+</ParamField>
 
 <AccordionGroup>
   <Accordion title="Sample Response" icon="code" iconType="solid">
@@ -242,6 +250,10 @@ This error appears when there are no active experiments in your workspace. To re
 **What's the difference between `data-1p` and `workspace_id`?**
 
 These are two references to the same identifier. `data-1p` is used when embedding the script tag, while `workspace_id` is used when accessing it programmatically through `$1Price.workspace_id`. Both contain the same unique workspace identifier.
+
+**Do I need to specify the `uniqueId` and `currency`?**
+
+The `uniqueId` parameter is optional and can be used to maintain consistent pricing for a specific customer across multiple sessions. The `currency` parameter is also optional and can be used to specify the currency for returned pricing values.
 
 **How can I preview what a specific customer segment sees?**
 
