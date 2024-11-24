@@ -17,8 +17,8 @@ iconType: "solid"
   [Gumroad](/integrations/gumroad).
 </Note>
 <Warning>
-  Ensure you have an experiment `In Progress` or else the following guide won't
-  function.
+  Ensure you have started an experiment to the status `In Progress` before
+  following the guide
 </Warning>
 
 <Frame>
@@ -182,6 +182,7 @@ To determine the success of a experiment, we track multiple data points on [Resu
 
 You'll need to send the 1Price generated priceId to your backend server when creating a Stripe subscription.
 
+<CodeGroup>
 ```javascript Example Stripe Checkout Session
 const session = await stripe.checkout.sessions.create({
   success_url: "https://example.com/success",
@@ -191,6 +192,16 @@ const session = await stripe.checkout.sessions.create({
   mode: "subscription",
 });
 ```
+```javascript Example Stripe Subscription Session
+const subscription = await stripe.subscriptions.create({ 
+  customer: 'cus_Mzbketpctz1F', 
+  metadata: { oneprice_cid: YOUR_1PRICE_CID },
+  items: [
+    { price: YOUR_PRICE_ID },
+  ],
+});
+```
+</CodeGroup>
 
 <Warning>
   Replace value of `YOUR_1PRICE_CID` with the value of your $1Price.customer_id
@@ -224,3 +235,13 @@ Also note, we can only track Checkout Sessions at the moment. Subscription Creat
 ## Need Additional Help?
 
 You can always contact us via live chat or [email](hello@1price.co) and we can set up a price experiment together!
+
+### FAQs
+
+**I get error that says `Start an experiment to activate script`**
+
+This errors on the script shows when you have not started an experiment or when there are no 'active' experiments. Simply, start an experiment to the status `In Progress` and the script will activate.
+
+**What is the difference between `data-1p` and `workspace_id`?**
+
+They are the same thing, just two different names for the same value. You can access your workspace from your script with `$1Price.workspace_id`.
