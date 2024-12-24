@@ -70,7 +70,7 @@ const YourComponent = () => {
 
 </CodeGroup>
 
-The script needs to be added on your landing page, app, or any other page where you want to use 1Price. This script will add a global variable called `$1Price` to your window object which will categorize new users.
+The script needs to be added on your landing page, app, or any other page where you want to use 1Price. This script will add a global variable called ` $1Price` to your window object which will categorize new users.
 
 <Warning>
   Replace value of `YOUR_WORKSPACE_ID` with your unique `data_1p` found on
@@ -92,14 +92,11 @@ To have adaptive pricing, change the price value to correspond with the [1Price 
 </Tip>
 
 ```javascript POST
-fetch("https://widget.1price.co/api/v1/price_value", {
+fetch("https://widget.1price.co/api/v2/price_value", {
   method: "POST",
   body: JSON.stringify({
-    offerId: $1Price.offer_id,
-    workspaceId: $1Price.workspace_id,
-    customerId: $1Price.customer_id,
-    uniqueId: YOUR_UNIQUE_ID, // OPTIONAL
-    currency: "usd", // OPTIONAL
+    one_price: $1Price,
+    unique_id: USER_ID, // OPTIONAL
   }),
 })
   .then((response) => response.json())
@@ -112,7 +109,7 @@ fetch("https://widget.1price.co/api/v1/price_value", {
 ```
 
 <Warning>
-  Replace value of `YOUR_UNIQUE_ID` with the value of your customer_id.
+  Replace value of `USER_ID` with the value of your customer's unique id.
 </Warning>
 
 This endpoint returns a **JSON object containing pricing details** for your products, including monthly and yearly pricing options, and currency information. The response includes:
@@ -125,22 +122,30 @@ This endpoint returns a **JSON object containing pricing details** for your prod
 
 Use this data to dynamically populate your pricing table and ensure your visitors always see the most up-to-date pricing information.
 
-<ParamField path="offerId" type="string" required>
-  The offer shown for experiments
-</ParamField>
-<ParamField path="workspaceId" type="string" required>
+### `$1Price` Parameters:
+
+<ParamField path="workspace_id" type="string" required>
   The workspace of your account
 </ParamField>
-<ParamField path="customerId" type="string" required>
+<ParamField path="customer_id" type="string" required>
   The customer linked to the offer
 </ParamField>
-<ParamField path="uniqueId" type="string">
-  Optional parameter to maintain consistent pricing for a specific customer
-  across multiple sessions
+<ParamField path="experiment_id" type="string" required>
+  The experiment linked to the offer
+</ParamField>
+<ParamField path="offer_id" type="string" required>
+  The offer shown for experiments
 </ParamField>
 <ParamField path="currency" type="string">
   Optional parameter to specify the currency for returned pricing values (e.g.,
   "usd", "eur", "gbp")
+</ParamField>
+
+### Additional parameters include:
+
+<ParamField path="unique_id" type="string">
+  Optional parameter to maintain consistent pricing for a specific customer
+  across multiple sessions
 </ParamField>
 
 <AccordionGroup>
@@ -154,26 +159,28 @@ Use this data to dynamically populate your pricing table and ensure your visitor
    {
      "name": "Basic Plan",
      "monthly": {
+       "price": 9.99,
+       "formatted_price": "$9.99 USD",
+       "interval": "month",
        "billing_scheme": "per_unit",
+       "interval_count": 1,
+       "stripe_price_id": "price_1ABC123XYZ",
        "metadata": {
           description: "reg offer",
           original_price_id: "price_EFA4F456UVW"
        }
-       "interval": "month",
-       "interval_count": 1,
-       "price": 9.99,
-       "stripe_price_id": "price_1ABC123XYZ"
       },
      "yearly": {
+       "price": 99.99,
+       "formatted_price": "$99.99 USD",
+       "interval": "year",
        "billing_scheme": "per_unit",
+       "interval_count": 1,
+       "stripe_price_id": "price_2DEF456UVW",
        "metadata": {
           description: "60% off",
           original_price_id: "price_AFeF456UVW"
        }
-       "interval": "year",
-       "interval_count": 1,
-       "price": 99.99,
-       "stripe_price_id": "price_2DEF456UVW"
       },
     }
   ]
@@ -265,7 +272,7 @@ The `uniqueId` parameter is optional and can be used to maintain consistent pric
 You can preview the pricing for any offer by making a GET request to:
 
 ```javascript
-http://widget.1price.co/api/v1/price_value?offer_id=YOUR_OFFER_ID
+http://widget.1price.co/api/v2/price_value?offer_id=YOUR_OFFER_ID
 ```
 
 This is useful for verifying the pricing that different customer segments will see.
