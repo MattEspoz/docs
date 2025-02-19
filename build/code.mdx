@@ -42,6 +42,8 @@ iconType: "solid"
 
 ## Step One: Copy Embeded Code
 
+### Client Side Implementation
+
 Insert our script tag in your website's head tag.
 
 <CodeGroup>
@@ -81,6 +83,56 @@ The script needs to be added on your landing page, app, or any other page where 
   Note: 1Price is not responsible for any API failures. Setup proper fallback
   values when implementing our API
 </Warning>
+
+### Server Side Implementation
+
+<Warning>
+  We HIGHLY advise AGAINST server side implementation. The 1Price script performs serveral analytics actions and has been tested thoroughly. Adding your own implementation risks the loss of important data and innacurate results.
+
+This is also a beta feature.
+
+</Warning>
+
+**Fetching the 1Price Object**
+
+Each time you have a new visitor, you must fetch the 1Price object and store it. We recommend storing it in a cookie for three hours.
+
+```
+GET https://app.1price.co/api/get1PriceObject?workspace_id=&countryCode=
+```
+
+<ParamField path="workspace_id" type="string" required>
+  The workspace of your account found in
+  [connect](https://app.1price.co/connect)
+</ParamField>
+<ParamField path="countryCode" type="string">
+  The country code of the user
+</ParamField>
+
+**Obtaining a country code**
+
+We recommend using [ipAPI](https://ipapi.co/api/) to get the country code of the user.
+
+**Re-Validating The Experiment**
+
+To prevent duplicate analytics of a customer visting pages or reloading, if you detect a valid cookie, call the following API
+
+```
+GET  https://app.1price.co/api/v1/revalidate_experiment/
+```
+
+<ParamField path="origin" type="string">
+  The origin of the request
+</ParamField>
+<ParamField path="customer_id" type="string" required>
+  The customer linked to the offer
+</ParamField>
+<ParamField path="offer_id" type="string" required>
+  The offer shown for experiments
+</ParamField>
+<ParamField path="experiment_id" type="string" required>
+  The experiment linked to the offer
+</ParamField>
 
 ## Step Two: Dynamic Price Number
 
@@ -157,7 +209,7 @@ Use this data to dynamically populate your pricing table and ensure your visitor
  "currency": "usd",
  "products": [
    {
-     "name": "Basic Plan f",
+     "name": "Basic Plan",
      "monthly": {
        "price": 9.99,
        "formatted_price": "$9.99 USD",
