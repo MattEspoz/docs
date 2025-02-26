@@ -297,6 +297,42 @@ Also note, we can only track Checkout Sessions at the moment. Subscription Creat
   1Price Global variation from either `$1Price` or `window.$1Price`
 </Tip>
 
+## Handling Subscription Upgrades
+
+We recommend having your own billing pages given the structure of price experiments. However, for customers who use the Stripe billing portal, our beta `/v3/price_value` endpoint contains a `stripeCheckoutSubscriptionUpdate` property.
+
+To retrieve this property simply follow the [Step 2](#step-two-dynamic-price-number) and access the `stripeCheckoutSubscriptionUpdate` property.
+
+When creating your [Stripe portal sessions](https://docs.stripe.com/api/customer_portal/configurations) you will first need to create a custom session. The following is an example of how to create a custom session using the NodeJS library.
+
+```javascript
+const configuration = await stripe.billingPortal.configurations.create({
+        features: {
+            subscription_update: {
+                enabled: true,
+                default_allowed_updates: ['price'],
+                // The object retrieved from the v3 endpoint
+                products: stripeCheckoutSubscriptionUpdate  
+            },
+        },
+        business_profile: {
+            privacy_policy_url: 'https://example.com/privacy',
+            terms_of_service_url: 'https://example.com/terms',
+        },
+    })
+```
+
+Once your configuration is made you can create your custom session using the following code.
+
+```javascript
+const session = await stripe.billingPortal.sessions.create({
+        customer: stripeCustomerID,
+        return_url: req.nextUrl.origin,
+        configuration: configuration.id, // The configuration ID you created
+    })
+```
+
+
 ## 🧪 ​{" "} Test Integration:
 
 1. Start an experiment on 1Price <br/>
